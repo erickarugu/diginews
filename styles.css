@@ -1,0 +1,138 @@
+:root {
+    --gray0: #F4F4F8;
+    --gray1: #E6E6EA;
+    --gray2: #CCD6EB;
+    --gray3: #011627;
+    --gray4: #3A3335;
+}
+.light{
+    --bg: var(--gray0);
+    --bg-nav: var(--gray2);
+    --bg-theme-select: var(--gray3);
+    --bg-head: linear-gradient(to right, var(--gray3), var(--gray4));
+    --text: var(--gray4);
+}
+.dark{
+    --bg: var(--gray3);
+    --bg-nav: var(--gray4);
+    --bg-theme-select: var(--gray0);
+    --bg-head: linear-gradient(to right, var(--gray1), var(--gray2));
+    --text: var(--gray2);
+}
+
+html,
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    color: var(--text);
+    background: var(--bg);
+    font: 1rem/1.77 Helvetica Neue,Helvetica,Arial,sans-serif;
+    transition: background .5s ease-in, color 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2rem;
+    letter-spacing: .2rem;
+}
+
+.top-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: var(--bg-nav);
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text);
+    padding: 1rem;
+    transition: background 1s ease-in-out, color 1.5s ease-in-out;
+}
+
+.top-header .title {
+    flex: 1;
+    word-wrap: none;
+}
+.top-header .category-select {
+    flex: 1;
+}
+
+select{
+    border: none;
+    padding: .5rem .7rem;
+    font-size: 1rem;
+    background: var(--bg);
+    color: var(--text);
+    transition: background 1s ease-in-out, color 1.5s ease-in-out;
+}
+select option{
+    font-style: italic;
+}
+/* Theme swithc */
+#theme-selector {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: var(--bg-theme-select);
+    padding: .5rem;
+    border-bottom-left-radius: 2rem;
+    font-size: 2rem;
+    transition: background 1s ease-in-out;
+}
+#theme-selector:hover{
+    cursor: pointer; 
+}
+main{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 2rem 10rem;
+    padding-top: 4rem;
+}
+main .article{
+    flex-grow: 1;
+    margin: 1rem;
+    width: 20rem;
+    max-width: 30rem;
+}
+main .article a{
+    color: var(--text);
+    text-decoration: none;
+    transition: color 1.5s ease-in-out;
+
+}
+main .article a h2{
+    font-size: 1.5rem;
+}
+main .article a img{
+    width: 100%;
+    max-width: 30rem;
+    max-height: 20rem;
+}
+main .article a p{
+    font-size: .9rem;
+}
+/* Theme Switch */
+@media screen and (max-width: 500px){
+    h1{
+        font-size: 1rem;
+        letter-spacing: 0;
+    }
+    #theme-selector{
+        font-size: 1rem;
+    }
+    main .article a h2{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 1200px){
+    main{
+        margin: 1rem;
+    }
+}
