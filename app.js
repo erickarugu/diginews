@@ -22,7 +22,7 @@ window.addEventListener('load', async (e) => {
     }
 })
 async function updateSources(){
-    const res = await fetch(`http://newsapi.org/v2/sources?apiKey=${API_KEY}`);
+    const res = await fetch(`https://newsapi.org/v2/sources?apiKey=${API_KEY}`);
     const data = await res.json();
     categorySelector.innerHTML = data.sources.map(src => {
         return `<option value="${src.id}">${src.name}</option>`
@@ -30,7 +30,7 @@ async function updateSources(){
 }
 
 async function updateNews(source = defaultSource){
-    const res = await fetch(`http://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${API_KEY}`);
+    const res = await fetch(`https://newsapi.org/v2/top-headlines?sources=${source}&apiKey=${API_KEY}`);
     const data = await res.json();
 
     main.innerHTML = data.articles.map(createArticle).join('\n');
